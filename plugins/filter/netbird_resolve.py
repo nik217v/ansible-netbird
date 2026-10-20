@@ -503,7 +503,7 @@ def netbird_value_problems(policies, setup_keys=None):
             continue
         if sk.get('expires_in') is not None:
             iv = _as_port_int(sk.get('expires_in'))
-            if iv is None or iv <= 0:
+            if iv is None or iv < 0:
                 problems.append(
                     "setup key '%s': expires_in must be a positive integer (got %r)"
                     % (sk.get('name', '<unnamed>'), sk.get('expires_in')))
